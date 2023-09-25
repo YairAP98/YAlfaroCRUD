@@ -1,0 +1,58 @@
+﻿@model ML.Disco
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Registrar Discos</h2>
+<h5>Llena los campos para registrar el disco</h5>
+<hr />
+<div class="container">
+    @using (Html.BeginForm("Form", "Disco", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="row">
+            @Html.HiddenFor(model => model.IdDisco)
+
+            <div class="col-md-3">
+                @Html.LabelFor(model => Model.Titulo)
+                @Html.TextBoxFor(model => Model.Titulo, new { @class = "form-control" })
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(model => Model.Artista)
+                @Html.TextBoxFor(model => Model.Artista, new { @class = "form-control" })
+
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(model => Model.GeneroMusical)
+                @Html.TextBoxFor(model => Model.GeneroMusical, new { @class = "form-control" })
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(model => Model.Duracion)
+                @Html.TextBoxFor(model => Model.Duracion, new { @class = "form-control" })
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                @Html.LabelFor(model => Model.Año)
+                @Html.TextBoxFor(model => Model.Año, new { @class = "form-control" })
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(model => Model.Distribuidora)
+                @Html.TextBoxFor(model => Model.Distribuidora, new { @class = "form-control" })
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(model => Model.Ventas)
+                @Html.TextBoxFor(model => Model.Ventas, new { @class = "form-control" })
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(model => Model.Disponibilidad)
+                @Html.TextBoxFor(model => Model.Disponibilidad, new { @class = "form-control" })
+            </div>
+        </div>
+   <br />
+            <input class="btn btn-primary" type="submit" name="name" value="Guardar" />
+            @Html.ActionLink("Cancelar", "GetAll", "Disco", htmlAttributes: new { @class = "btn btn-danger custom-button" })
+
+    }
+</div>
